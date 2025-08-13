@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-tempo
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 1.23.2
+    chart: tempo
+    helm:
+      releaseName: grafana-tempo
+      valuesObject:
+        tempo:
+          storage:
+            trace:
+              backend: s3
+              s3:
+                bucket: devops-engineer-assignment-tempo
+                endpoint: s3.eu-central-1.amazonaws.com
+                region: eu-central-1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
