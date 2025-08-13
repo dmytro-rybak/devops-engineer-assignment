@@ -18,7 +18,7 @@ spec:
         singleBinary:
           replicas: 1
           persistence:
-            storageClass: gp2
+            storageClass: gp3
             accessModes:
               - ReadWriteOnce
             size: 5Gi
