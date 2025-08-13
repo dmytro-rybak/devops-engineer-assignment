@@ -1,0 +1,23 @@
+application: microsim
+
+deployment:
+  replicas: 2
+  image:
+    repository: "yurishkuro/microsim"
+    tag: "latest"
+  resources:
+    requests:
+      cpu: "75m"
+      memory: "128Mi"
+    limits:
+      cpu: "150m"
+      memory: "256Mi"
+  env:
+    - name: OTEL_EXPORTER_OTLP_ENDPOINT
+      value: http://tempo.observability.svc.cluster.local:4318/
+    - name: OTEL_EXPORTER_OTLP_INSECURE
+      value: "true"
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1

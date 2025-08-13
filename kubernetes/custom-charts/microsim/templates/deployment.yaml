@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.application }}
+  labels:
+    app: {{ .Values.application }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.application }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.application }}
+    spec:
+      containers:
+        - name: {{ .Values.application }}
+          image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}
+          resources:
+            {{- toYaml .Values.deployment.resources | nindent 12 }}
+          env: {{ .Values.deployment.env }}
