@@ -14,7 +14,7 @@ deployment:
       memory: "256Mi"
   env:
     - name: OTEL_EXPORTER_OTLP_ENDPOINT
-      value: http://tempo.observability.svc.cluster.local:4318/
+      value: http://grafana-tempo.observability.svc.cluster.local:4318/
     - name: OTEL_EXPORTER_OTLP_INSECURE
       value: "true"
 
