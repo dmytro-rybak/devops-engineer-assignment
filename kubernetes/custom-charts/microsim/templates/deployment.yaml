@@ -19,4 +19,8 @@ spec:
           image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}
           resources:
             {{- toYaml .Values.deployment.resources | nindent 12 }}
-          env: {{ .Values.deployment.env }}
+          env:
+          {{- range .Values.deployment.env }}
+            - name: {{ .name }}
+              value: "{{ .value }}"
+          {{- end }}
