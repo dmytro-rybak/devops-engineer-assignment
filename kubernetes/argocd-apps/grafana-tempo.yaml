@@ -22,6 +22,11 @@ spec:
                 bucket: devops-engineer-assignment-tempo
                 endpoint: s3.eu-central-1.amazonaws.com
                 region: eu-central-1
+          serviceAccount:
+            create: true
+            name: grafana-tempo
+            annotations:
+              eks.amazonaws.com/role-arn: arn:aws:iam::058264082360:role/devops-engineer-assignment-s3-access
   destination:
     server: https://kubernetes.default.svc
     namespace: observability
