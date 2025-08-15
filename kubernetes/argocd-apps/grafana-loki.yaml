@@ -15,6 +15,7 @@ spec:
       releaseName: grafana-loki
       valuesObject:
         deploymentMode: SingleBinary
+        auth-enabled: false
         singleBinary:
           replicas: 1
           persistence:
