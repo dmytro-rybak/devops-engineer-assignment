@@ -62,7 +62,7 @@ spec:
                     requests:
                       storage: 2Gi
             retention: 1d
-            retentionSize: 2Gi
+            retentionSize: 2GiB
   destination:
     server: https://kubernetes.default.svc
     namespace: observability
