@@ -50,10 +50,11 @@ spec:
           enabled: false
         chunksCache:
           enabled: false
+        resultsCache:
+          enabled: false
         loki:
-          ui:
-            gateway:
-              enabled: false
+          gateway:
+            enabled: false
           commonConfig:
             replication_factor: 1
           schemaConfig:
