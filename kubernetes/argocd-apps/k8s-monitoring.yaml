@@ -19,7 +19,7 @@ spec:
         destinations:
           - name: Loki
             type: loki
-            url: http://loki.observability.svc.cluster.local:3100
+            url: http://grafana-loki.observability.svc.cluster.local:3100
         podLogs:
           enabled: true
         clusterEvents:
