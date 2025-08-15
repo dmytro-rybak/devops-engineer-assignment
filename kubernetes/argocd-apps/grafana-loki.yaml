@@ -50,8 +50,6 @@ spec:
           enabled: false
         chunksCache:
           enabled: false
-        lokiCanary:
-          enabled: false
         loki:
           ui:
             gateway:
