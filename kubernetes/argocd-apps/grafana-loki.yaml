@@ -52,9 +52,9 @@ spec:
           enabled: false
         resultsCache:
           enabled: false
+        gateway:
+          enabled: false
         loki:
-          gateway:
-            enabled: false
           commonConfig:
             replication_factor: 1
           schemaConfig:
