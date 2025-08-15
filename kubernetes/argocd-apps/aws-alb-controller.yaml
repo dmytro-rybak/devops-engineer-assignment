@@ -16,6 +16,7 @@ spec:
       valuesObject:
         region: eu-central-1
         clusterName: devops-engineer-assignment
+        vpcId: vpc-0e0ccd0db1554892d
         serviceAccount:
           create: true
           name: aws-load-balancer-controller
