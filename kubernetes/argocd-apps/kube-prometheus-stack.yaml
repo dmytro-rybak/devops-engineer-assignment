@@ -45,11 +45,11 @@ spec:
           additionalDataSources:
             - name: Loki
               type: loki
-              url: http://loki.observability.svc.cluster.local:3100
+              url: http://grafana-loki.observability.svc.cluster.local:3100
               access: proxy
             - name: Tempo
               type: tempo
-              url: http://tempo.observability.svc.cluster.local:3200
+              url: http://grafana-tempo.observability.svc.cluster.local:3200
               access: proxy
         prometheus:
           prometheusSpec:
