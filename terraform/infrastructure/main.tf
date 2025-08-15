@@ -40,3 +40,15 @@ module "aws_eks" {
 
   tags = local.tags
 }
+
+###########################################################################
+# AWS ACM
+###########################################################################
+
+module "aws_acm" {
+  source = "../modules/aws-acm"
+
+  domain_name = var.domain_name
+  zone_id     = data.aws_route53_zone.main.zone_id
+  tags        = local.tags
+}
