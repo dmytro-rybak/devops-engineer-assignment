@@ -21,7 +21,7 @@ spec:
             storageClass: gp3
             accessModes:
               - ReadWriteOnce
-            size: 5Gi
+            size: 2Gi
         backend:
           replicas: 0
         read:
