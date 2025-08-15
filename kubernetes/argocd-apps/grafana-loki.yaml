@@ -48,7 +48,14 @@ spec:
           replicas: 0
         minio:
           enabled: false
+        chunksCache:
+          enabled: false
+        lokiCanary:
+          enabled: false
         loki:
+          ui:
+            gateway:
+              enabled: false
           commonConfig:
             replication_factor: 1
           schemaConfig:
@@ -60,8 +67,6 @@ spec:
                 index:
                   prefix: loki_index_
                   period: 24h
-          pattern_ingester:
-            enabled: true
           storage:
             bucketNames:
               chunks: devops-engineer-assignment-loki

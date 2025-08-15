@@ -3,7 +3,7 @@
 ###########################################################################
 
 module "s3_buckets" {
-  for_each = toset(["loki", "tempo"])
+  for_each = toset(["loki", "tempo", "mimir"])
 
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "5.4.0"

@@ -17,6 +17,15 @@ module "eks" {
     node_pools = ["general-purpose"]
   }
 
+  addons = {
+    coredns            = {}
+    kube-proxy         = {}
+    aws-ebs-csi-driver = {}
+    vpc-cni = {
+      before_compute = true
+    }
+  }
+
   vpc_id     = var.vpc_id
   subnet_ids = var.subnet_ids
 
@@ -38,7 +47,7 @@ module "s3_irsa_role" {
   oidc_providers = {
     one = {
       provider_arn               = module.eks.oidc_provider_arn
-      namespace_service_accounts = ["observability:grafana-tempo", "observability:grafana-loki"]
+      namespace_service_accounts = ["observability:grafana-tempo", "observability:grafana-loki", "observability:grafana-mimir"]
     }
   }
 }
