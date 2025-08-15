@@ -51,6 +51,18 @@ spec:
               type: tempo
               url: http://tempo.observability.svc.cluster.local:3200
               access: proxy
+        prometheus:
+          prometheusSpec:
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  storageClassName: gp3
+                  accessModes: ["ReadWriteOnce"]
+                  resources:
+                    requests:
+                      storage: 2Gi
+            retention: 1d
+            retentionSize: 2Gi
   destination:
     server: https://kubernetes.default.svc
     namespace: observability
