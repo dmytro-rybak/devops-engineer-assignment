@@ -73,7 +73,6 @@ spec:
               ruler: devops-engineer-assignment-loki
               admin: devops-engineer-assignment-loki
             s3:
-              endpoint: s3.eu-central-1.amazonaws.com
               region: eu-central-1
         serviceAccount:
           create: true
