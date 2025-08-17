@@ -51,8 +51,8 @@ spec:
           dashboards:
             default:
               logs:
-                gntId: 15141
-                version: 1
+                gntId: 13639
+                revision: 2
                 datasource: Loki
           sidecar:
             datasources:
