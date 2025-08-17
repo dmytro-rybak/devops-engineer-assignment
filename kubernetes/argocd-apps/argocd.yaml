@@ -18,23 +18,6 @@ spec:
           enabled: false
         notifications:
           enabled: false
-        configs:
-          params:
-            server.insecure: true
-        server:
-          ingress:
-            enabled: true
-            hostname: argocd.dmytrorybak.click
-            path: /
-            annotations:
-              kubernetes.io/ingress.class: alb
-              alb.ingress.kubernetes.io/target-type: ip
-              alb.ingress.kubernetes.io/scheme: internet-facing
-              alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
-              alb.ingress.kubernetes.io/ssl-redirect: "443"
-              alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
-              alb.ingress.kubernetes.io/healthcheck-path: /healthz
-              alb.ingress.kubernetes.io/group.name: devops-engineer-assignment
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
