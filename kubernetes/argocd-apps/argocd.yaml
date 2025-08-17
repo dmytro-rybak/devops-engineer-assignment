@@ -23,14 +23,14 @@ spec:
             enabled: true
             hostname: argocd.dmytrorybak.click
             path: /
-            extraPaths:
-              - path: /*
-                pathType: Prefix
-                backend:
-                  service:
-                    name: ssl-redirect
-                    port:
-                      name: use-annotation
+            # extraPaths:
+            #   - path: /
+            #     pathType: Prefix
+            #     backend:
+            #       service:
+            #         name: ssl-redirect
+            #         port:
+            #           name: use-annotation
             annotations:
               kubernetes.io/ingress.class: alb
               alb.ingress.kubernetes.io/target-type: ip
@@ -38,7 +38,6 @@ spec:
               alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
               alb.ingress.kubernetes.io/ssl-redirect: "443"
               alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
-              alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-central-1:058264082360:certificate/5f0ae71f-8303-4cc0-97d7-ad7d7918dd74
               alb.ingress.kubernetes.io/healthcheck-path: /healthz
               alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
               alb.ingress.kubernetes.io/group.name: devops-engineer-assignment
