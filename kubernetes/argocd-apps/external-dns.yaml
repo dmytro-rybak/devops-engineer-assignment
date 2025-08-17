@@ -22,7 +22,9 @@ spec:
           - dmytrorybak.click
         sources:
           - ingress
-        txtOwnerId: external-dns
+        registry: noop
+        managedRecordTypes:
+          - A
         policy: sync
         env:
           - name: AWS_DEFAULT_REGION
