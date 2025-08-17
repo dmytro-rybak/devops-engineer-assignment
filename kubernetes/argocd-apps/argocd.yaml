@@ -36,17 +36,6 @@ spec:
               alb.ingress.kubernetes.io/healthcheck-path: /healthz
               alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
               alb.ingress.kubernetes.io/group.name: devops-engineer-assignment
-              alb.ingress.kubernetes.io/conditions.argogrpc:
-                [
-                  {
-                    "field": "http-header",
-                    "httpHeaderConfig":
-                      {
-                        "httpHeaderName": "Content-Type",
-                        "values": ["application/grpc"],
-                      },
-                  },
-                ]
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
