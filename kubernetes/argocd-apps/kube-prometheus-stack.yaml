@@ -38,6 +38,7 @@ spec:
               alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
               alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-central-1:058264082360:certificate/5f0ae71f-8303-4cc0-97d7-ad7d7918dd74
               alb.ingress.kubernetes.io/healthcheck-path: /api/health
+              alb.ingress.kubernetes.io/group.name: devops-engineer-assignment
           persistence:
             enabled: true
             storageClassName: gp3

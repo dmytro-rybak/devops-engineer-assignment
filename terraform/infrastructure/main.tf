@@ -52,3 +52,17 @@ module "aws_acm" {
   zone_id     = data.aws_route53_zone.main.zone_id
   tags        = local.tags
 }
+
+###########################################################################
+# AWS IAM
+###########################################################################
+
+module "aws_iam" {
+  source = "../modules/aws-iam"
+
+  project = var.project
+
+  eks_oidc_provider_arn = module.aws_eks.oidc_provider_arn
+
+  tags = local.tags
+}

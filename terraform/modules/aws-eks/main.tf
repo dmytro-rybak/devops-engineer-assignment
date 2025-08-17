@@ -33,37 +33,3 @@ module "eks" {
 
   tags = var.tags
 }
-
-module "s3_irsa_role" {
-  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
-  version = "5.60.0"
-
-  role_name = "${var.project}-s3-access"
-
-  role_policy_arns = {
-    policy = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
-  }
-
-  oidc_providers = {
-    one = {
-      provider_arn               = module.eks.oidc_provider_arn
-      namespace_service_accounts = ["observability:grafana-tempo", "observability:grafana-loki"]
-    }
-  }
-}
-
-module "aws_alb_controller_irsa_role" {
-  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
-  version = "5.60.0"
-
-  role_name = "${var.project}-alb"
-
-  attach_load_balancer_controller_policy = true
-
-  oidc_providers = {
-    one = {
-      provider_arn               = module.eks.oidc_provider_arn
-      namespace_service_accounts = ["kube-system:aws-load-balancer-controller"]
-    }
-  }
-}
