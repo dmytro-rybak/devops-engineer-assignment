@@ -30,14 +30,6 @@ spec:
             hosts:
               - grafana.dmytrorybak.click
             path: /
-            extraPaths:
-              - path: /
-                pathType: Prefix
-                backend:
-                  service:
-                    name: ssl-redirect
-                    port:
-                      name: use-annotation
             annotations:
               kubernetes.io/ingress.class: alb
               alb.ingress.kubernetes.io/target-type: ip
